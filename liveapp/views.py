@@ -12,16 +12,17 @@ def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     return render(request, 'liveapp/detail.html', {'product': product})
 
-# def input_content(request):
-#     return render(request, 'basic/input_content.html', {})
+def input_content(request):
+    return render(request, 'liveapp/input_content.html', {})
 
-# def save_content(request):
-#     image_path = request.POST['image_path']
-#     blog_title = request.POST['blog_title']
-#     blog_content = request.POST['blog_content']
+def save_content(request):
+    image_path = request.POST['image_path']
+    product_name = request.POST['product_name']
+    product_price = request.POST['product_price']
+    product_desc = request.POST['product_desc']
 
-#     bl = Blog(image_path=image_path, blog_title=blog_title, blog_content=blog_content)
-#     bl.save()
-#     blog = Blog.objects.all()
+    pr = Product(image_path=image_path, product_name=product_name, product_price=product_price, product_desc = product_desc)
+    pr.save()
+    product = Product.objects.all()
     
-#     return render(request,'basic/blog.html', {'blog': blog}) 
+    return render(request,'liveapp/index.html', {'product': product}) 

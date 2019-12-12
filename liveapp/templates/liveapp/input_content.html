@@ -1,0 +1,41 @@
+{% extends 'liveapp/base.html' %}
+
+{% block title %}New Product{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="container-fluid content input justify-content-center">
+        <div class = "row">
+            <div class = "col-md-12 justify-content-center">
+            <form action="{% url 'liveapp:save_content' %}" method="POST">
+                {% csrf_token %}
+                <div>
+                    <p>
+                        <label for="img_path">Input Image URL:</label>
+                        <br>
+                        <input type="text" id="img_path" name="image_path" placeholder="img/image_address" required />
+                    </p>
+                    <p>
+                        <label for="product_name">Input Product Name:</label>
+                        <br>
+                        <input type="text" id="product_name" name="product_name" placeholder="Name Product" required/>
+                    </p>
+                    <p>
+                        <label for="product_price">Input Product Price:</label>
+                        <br>
+                        <input type="text" id="product_price" name="product_price" placeholder=" Product Price " required/>
+                    </p>
+                    <p>
+                        <label for="product_desc">Description:</label>
+                        <br>
+                        <textarea id="product_desc" name="product_desc" cols="50" rows="10" required></textarea>          
+                    </p>
+                    <p>
+                        <input type="submit" name="submit" value="Submit" />
+                    </p>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
