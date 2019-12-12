@@ -1,0 +1,22 @@
+{% extends 'liveapp/base.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <section>
+        <div class = "container detail">
+            <div class = "row detail-row">
+                <div class = "col-md-4"></div>
+                <div class = "col-md-4 content-row-first">
+                    <img src ="{{product.image_path}}" width="380px" height="252,933"></br>
+                    <h5><strong>{{product.product_name}}</strong></h5></br>
+                    <h5>{{product.product_price}}</h5></br>
+                    <h5>Deskripsi Produk:</h5></br>
+                    <h5>{{product.product_desc}}</h5></br>
+                </div>
+                <div class = "col-md-4"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

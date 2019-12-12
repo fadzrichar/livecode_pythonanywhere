@@ -1,0 +1,21 @@
+{% extends 'liveapp/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    
+    <section>
+        <div class="container content align-items-center">
+            <div class="row content-row">
+                {% for p in product %}
+                <div class="col-md-4 content-row-first">
+                    <img src="{{p.image_path}}" width="360px" height="252,933">
+                    <h5><strong>{{p.product_name}}</strong></h5>
+                    <h5>{{p.product_price}}</br></h5>
+                    <h5><a href="{% url 'liveapp:detail' p.id %}">Lihat Details</a></h5>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock  %}
